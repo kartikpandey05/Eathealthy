@@ -1,0 +1,33 @@
+<div class="main-content" ng-controller="restaurantController"> <br>
+	  <h1> Top Restaurants list in New,Delhi </h1>
+   
+	<div class="list" >
+         <input type="text" ng-model="search" placeholder="Search...">
+	<ul ng-repeat="Restaurant in restaurantLists | filter:search">
+        
+            <div class="restaurant-images">
+					<img src="images/{{ Restaurant.image }}">
+			</div>
+            
+			<a class="restaurant-name" ng-href="#!/Restaurants/{{ $index }}">
+				<h2>{{ Restaurant.name }}</h2>
+			</a> 
+        <span class="restaurant-rating">
+				<i class="fa fa-star-o"></i> &nbsp;
+				{{ Restaurant.rating }}
+			</span>
+        <a class="restaurant-discription">
+            <h5>{{ Restaurant.description }}</h5>        
+        </a>
+        <br>
+			 <br>
+			<span class="restaurant-location">
+				{{ Restaurant.location }}
+			</span>
+        <hr>
+	</ul>
+    </div>
+</div>
+<style>
+ 
+</style>

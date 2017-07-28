@@ -1,0 +1,74 @@
+<div class="details-page" ng-controller="detailsController">
+     <h1> Top Restaurants list in New,Delhi </h1>
+    
+	<div class="list" >
+         <div class="restaurant-images">
+					<img src="images/{{ Restaurant.image }}">
+			</div>
+		<a class="restaurant-name" ng-href="#!/Restaurants/{{ $index }}">
+				<h2>{{ Restaurant.name }}</h2>
+			</a> 
+        <span class="restaurant-rating">
+				<i class="fa fa-star-o"></i> &nbsp;
+				{{ Restaurant.rating }}
+			</span>
+         <a class="restaurant-discription">
+            <h5>{{ Restaurant.description }}</h5>        
+        </a>
+        <div class="restroDetails">
+		<li>Location &#58; <em>{{ Restaurant.location }}</em> </li>
+		<li>Recomended for &#58; <em>{{ Restaurant.recommended_for }}</em> </li>
+		<li>Meal for 2 &#58; <em>{{ Restaurant.meal_for_two }}</em> </li>
+        </div>
+        <li>Best for &#58; <em><b>{{ Restaurant.favourites.dish_name }}</b></em>
+    
+		 <img class="favDishImg" src="{{ Restaurant.favourites.url }}"> 
+             </li>
+      <div ng-if="Restaurant.favourites.url">
+			 <button class="btn" type="button" ng-show="Restaurant.favourites" ng-click="showDishDetails(Restaurant.favourites.url)" > Get Ingredients </button><br>
+		</div>
+    </div>
+    
+	<div class="ingredients" ng-if="ingredients">
+		<div class="ingredients-list" ng-repeat="ingredient in ingredients">
+		{{ingredient}},
+		</div>
+</div>
+    <div class= "ingredientsShow">
+    <div class= "carName" ng-if="carbohydrates">
+        carbohydrates
+        </div>
+        <div class= "fatName" ng-if="fat">
+        fat</div>
+        <div class= "proName" ng-if="protein">
+        Protein</div>
+        
+    </div>
+</div>
+
+<style>
+    .carName{
+             border: 2px solid white;
+            margin-left: 200px;
+            background-color:white;
+            padding: 20px;
+            width: 200px;
+            margin-top:50px;
+    }
+    .fatName{
+             border: 2px solid white;
+            margin-left: 500px;
+            background-color:white;
+            padding: 20px;
+            width: 200px;
+            margin-top:-60px;
+    }
+       .proName{
+             border: 2px solid white;
+            margin-left: 800px;
+            background-color:white;
+            padding: 20px;
+            width: 200px;
+            margin-top:-63px;
+    }
+</style>

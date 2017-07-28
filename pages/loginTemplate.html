@@ -1,0 +1,26 @@
+<div class="login-content" ng-controller="loginController">
+	<div class="header-name">
+		<h1> Eat Healthy</h1>
+	</div>
+    
+    <form name="LoginForm" ng-controller = "loginController" novalidate>
+        <section>
+                <input type="email" ng-model="user.email" name="email" placeholder="Enter Email" required>
+         
+                <span class="validationError" ng-if="LoginForm.email.$dirty">
+                    <span ng-if="LoginForm.email.$error.required">Email is required.</span>
+                    <span ng-show="LoginForm.email.$error.email">Enter a Valid email address.</span>
+                </span>
+        
+              <br><br>  
+                <input type="password" ng-model="user.password" name="password" placeholder="Enter Password" required minlength="4">
+         
+                <span class="validationError" ng-show="LoginForm.password.$dirty && LoginForm.password.$invalid">
+			         <span ng-show="LoginForm.password.$error.required">Password is required.</span>
+			         <span ng-show="LoginForm.password.$error.minlength">Minimum Length should be 4 characters.</span>
+		        </span><br><br>
+                <button class="btn" type="button" ng-disabled="LoginForm.$invalid" ng-click="goToHome(user.email, user.password)">Login</button>
+        
+      </section>
+  </form>
+</div>
